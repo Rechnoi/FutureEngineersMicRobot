@@ -35,20 +35,24 @@ void setup() {
     
     motorLeaderSetup();
     ultrasonicSetup();
-    //cameraSetup();
+    cameraSetup();
     moveSetup();
 #if DEBUG_WRITE
     debugWriteSetup();
 #endif
     delay(1500);
     
-    ultrasonic_move_forward = LEFT_ULTRASONIC;
+    ultrasonic_move_forward = RIGHT_ULTRASONIC;
     waitStabilizationBegin();
 }
 
+unsigned long previousMillis = 0;
+
 void loop() {
-    //globalDebug();
     globalMain();
+    //cameraDebugBlobs();
+    //while (millis() - previousMillis < 33) {}
+    //previousMillis = millis();
 }
 
 //Итерация основного цикла программы

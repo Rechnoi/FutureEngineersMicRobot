@@ -1,4 +1,4 @@
-/*#include "TrackingCamI2C.h"
+#include "TrackingCamI2C.h"
 
 TrackingCamI2C trackingCam;
 
@@ -31,4 +31,3 @@ void cameraDebugBlobs() {
         Serial.println();
     }
 }
-*/
