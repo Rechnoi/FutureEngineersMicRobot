@@ -1,13 +1,11 @@
-const int main_target_distance = 20;
+const int main_target_distance = 43; //33
 
-#define pid_kp 1.5
-#define pid_kd 0
+#define pid_kp 4
+#define pid_kd 2
 
 int pid_error = 0;
 int old_pid_error = 0;
 int old_pid_value = -1;
-
-int target_distance;
 
 //Установка целевой дистанции на основную целевую дистанцию
 void setMainTargetDistance() {
@@ -19,20 +17,38 @@ void setTargetDistance(int dist) {
     target_distance = dist;
 }
 
+void changeTargetDistance() {
+    target_distance ^= short_distance_to_side ^ long_distance_to_side;
+}
+
+void targetDistanceUpdate() {
+    if (now_side == INSIDE_SIDE) {
+        target_distance = long_distance_to_side;
+    } else {
+        target_distance = short_distance_to_side;
+    }
+    /*
+    if ((now_side == INSIDE_SIDE) ^ (ultrasonic_move_forward == dir_rotate)) {
+        target_distance = long_distance_to_side;
+    } else {
+        target_distance = short_distance_to_side;
+    }
+    */
+}
+
 //Вычисление значения регулятора
 void pidCalculate() {
-    int distance = dist[ultrasonic_move_forward];
+    int dist = distance[ultrasonic_move_forward];
     if (ultrasonic_move_forward == RIGHT_ULTRASONIC) {
-        pid_error = distance - target_distance;
+        pid_error = dist - target_distance;
     } else {
-        pid_error = target_distance - distance;
+        pid_error = target_distance - dist;
     }
-    pid_value = pid_error * pid_kp + (pid_error - old_pid_error) * pid_kd;
-    
-    if (pid_value != old_pid_value) {
-#if DEBUG_WRITE
-//        Serial.println(pid_value);
-#endif
-        old_pid_value = pid_value;
+    pid_value = pid_error * pid_kp;
+    if (begin_pid_move) {
+        begin_pid_move = false;
+    } else {
+        pid_value += (pid_error - old_pid_error) * pid_kd;
     }
+    old_pid_error = pid_error;
 }

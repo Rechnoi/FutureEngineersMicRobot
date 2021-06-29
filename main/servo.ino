@@ -1,14 +1,18 @@
 #include <Servo.h>
 
-const int CENTER_ANGLE = 105;
+const int CENTER_ANGLE = 102;
 const int MAX_SERVO_ANGLE = 40;
 
-const int PORT_MOTOR = 6;
+const int PORT_MOTOR = 9;
 
 Servo servo;
 
 void servoSetup() {
     servo.attach(PORT_MOTOR);
+    servoTurnCenter();
+}
+
+void servoTurnCenter() {
     servo.write(CENTER_ANGLE);
 }
 
@@ -22,12 +26,16 @@ void servoWrite(int angle) {
     servo.write(angle);
 }
 
-void servoTurn() {
-    if (dir_rotate == DIR_LEFT) {
+void servoTurn(bool dir) {
+    if (dir == DIR_LEFT) {
         servoWrite(-MAX_SERVO_ANGLE);
     } else {
         servoWrite(MAX_SERVO_ANGLE);
     }
+}
+
+void servoTurn() {
+    servoTurn(dir_rotate);
 }
 
 int servoRead() {
