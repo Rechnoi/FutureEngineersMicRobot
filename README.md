@@ -20,7 +20,7 @@
   ![Left](views/left.jpg)
   ![Top](views/top.jpg)
   ![Bottom](views/bottom.jpg)
-  *If it does not open, check the views folder
+  *If it does not open, check the views folder, please
 
 ## Repository content
   - The "3D-models" folder contains all versions of 3D models for printing the robot
@@ -42,7 +42,7 @@
 
 ### About ESP32
   ![Esp](readme_photo/esp_lolin32.jpg)
-  The Lolin D32 development board is based on the Espressif systems ESP32 low power system on a chip microcontroller. It has many powerful features including a dual core Arm based processor, Wi-Fi, Bluetooth, I2C, I2S, SPI, ADC, DAC, and 4MB flash. The D32 module provides these features in a convenient DIP format and can be programmed directly from a USB interface - no additional programming
+  The Lolin D32 development board is based on the Espressif systems ESP32 low power system on a chip microcontroller. It has many powerful features including a dual core Arm based processor, Wi-Fi, Bluetooth, I2C, I2S, SPI, ADC, DAC, and 4MB flash. The D32 module provides these features in a convenient DIP format and can be programmed directly from a USB interface - no additional programming hardware is required. Additionally, the module also includes a charging circuit for a single cell 3.7V lithium battery, meaning that this module can easily be used in remote applications. 
 
 ### About Polulu metal gearmotor
   ![Motor](readme_photo/motor.jpg)
@@ -50,14 +50,16 @@
   These tiny brushed DC gearmotors are available in a wide range of gear ratios—from 5:1 up to 1000:1—and with five different motors: high-power 6 V and 12 V motors with long-life carbon brushes (HPCB), and high-power (HP), medium power (MP), and low power (LP) 6 V motors with shorter-life precious metal brushes. The 6 V and 12 V HPCB motors offer the same performance at their respective nominal voltages, just with the 12 V motor drawing half the current of the 6 V motor. The 6 V HPCB and 6 V HP motors are identical except for their brushes, which only affect the lifetime of the motor.
 
 ### About Camera "TrackingCam"
-  ![Camera]()
+  Modern mobile robots operate in a predetermined, changing environment, interacting with objects in it. While moving, the robot must assess the environment. For this purpose, we use the "TrackingCam" camera. TrackingCam is a vision module capable of recognizing both single-color objects and composite objects consisting of several color areas. 
 
 
 ## Installing the necessary programs and flashing the board
 
- - Install [arduino.ide](https://www.arduino.cc/en/software).
+ - To program the robot you need an Arduino IDE (https://www.arduino.cc/en/software). This open source software allows you to easily write code and upload it to the board.
 
- - Use the library manager to install the ESP32 library ESP32S2 AnalogWrite..
+ - Install ESP32 in the Arduino IDE board manager by adding the link (https://dl.espressif.com/dl/package_esp32_index.json) to the IDE settings.
+
+ - Use the library manager to install the ESP32 library ESP32S2 AnalogWrite.
 
  - Use the library manager to install the ESP32Servo library.
 
@@ -67,5 +69,6 @@
 ## Starting the robot
 
  - Turn on the robot with the toggle switch
+ - Set up the card as specified in the rules
  - Put the robot on the track
  - Press the button to start
