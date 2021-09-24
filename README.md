@@ -20,6 +20,7 @@
   ![Left](views/left.jpg)
   ![Top](views/top.jpg)
   ![Bottom](views/bottom.jpg)
+  *If it does not open, check the views folder
 
 ## Repository content
   - The "3D-models" folder contains all versions of 3D models for printing the robot
