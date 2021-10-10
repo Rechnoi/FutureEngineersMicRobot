@@ -23,7 +23,7 @@
   *If it does not open, check the "views" folder, please
 
 ## Schematic diagram of an electromechanical device
-  ![Schema](readme_photo/Scheme.png)
+  ![Schema](readme_photo/Violet3.0.png)
   *If it does not open, check the "\electromechanical component schematic" folder, please
 
 ## Repository content
