@@ -1,77 +1,68 @@
-//Point
-
 Point::Point() {}
 
 Point::Point(int16_t x, int16_t y) : x(x), y(y) {}
 
-// Сложение двух векторов
+// Sum of two vectors
 Point operator + (const Point& a, const Point& b) {
     return Point(a.x + b.x, a.y + b.y);
 }
 
-// Разность двух векторов
+// The difference of two vectors
 Point operator - (const Point& a, const Point& b) {
     return Point(a.x - b.x, a.y - b.y);
 }
 
-// Деление вектора на число
+// Dividing a vector by a number
 Point operator / (const Point& a, int k) {
     return Point(a.x / k, a.y / k);
 }
 
-// Получение вектора с началом в первой точке и концом во второй точке
+// Getting a vector with a start at the first point and an end at the second point
 Point operator ^ (const Point& A, const Point& B) {
     return B - A;
 }
 
-// Унарный оператор минус от вектора
+// Unary operator minus from vector
 Point Point::operator - () const {
     return Point(-x, -y);
 }
 
-// Векторное произведение
+// Vector product
 int operator * (const Vector& a, const Vector& b) {
     return (int)a.x * b.y - (int)a.y * b.x;
 }
 
-// Скалярное произведение
+// Scalar product
 int operator , (const Vector& a, const Vector& b) {
     return (int)a.x * b.x + (int)a.y * b.y;
 }
 
-// Проверка на равенство двух векторов
+// Checking for equality of two vectors
 bool operator == (const Point& a, const Point& b) {
     return a.x == b.x && a.y == b.y;
 }
 
-// Проверка на неравенство двух векторов
+// Checking for the inequality of two vectors
 bool operator != (const Point& a, const Point& b) {
     return a.x != b.x || a.y != b.y;
 }
 
-bool operator < (const Point& a, const Point& b) {
-    if (a.y != b.y) {
-        return a.y < b.y;
-    }
-    return a.x < b.x;
-}
-
-// Получение квадрата длины вектора
+// Getting the square of the vector length
 int Vector::getSqrLen() const {
     return (int)x * x + (int)y * y;
 }
 
-// Получение длины вектора
+// Getting the length of the vector
 double Vector::getLen() const {
     return sqrt(getSqrLen());
 }
 
-// Получение перпендикуляроного вектора
+// Getting a perpendicular vector
 Vector Vector::getPerp() const {
     return Vector(y, -x);
 }
 
-// Получение ориентированного угла между векторами
+// Getting the oriented angle between vectors
 double getAngle(const Vector& a, const Vector& b) {
     return atan2(a * b, (a, b));
 }
@@ -84,33 +75,33 @@ Line::Line(const Point& A, const Point& B) {
     this->C = A * B;
 }
 
-// Получение координаты x точки на прямой при заданном y
+// Getting the x coordinate of a point on a straight line at a given y
 double Line::getX(int16_t y) const {
     return -1. * (B * y + C) / A;
 }
 
-// Получение координаты y точки на прямой при заданном x
+// Getting the y coordinate of a point on a straight line for a given x
 double Line::getY(int16_t x) const {
     return -1. * (A * x + C) / B;
 }
 
-// Получение расстояние прямой до точки (0; 0)
+// Getting the distance of a straight line to a point (0; 0)
 double Line::distToCenter() const {
     return abs(C) / sqrt(A * A + B * B);
 }
 
-// Получение квадрата расстояния до заданной точки
+// Getting the square of the distance to a given point
 int Line::sqrDistToPoint(const Point& P) const {
     int tmp = A * P.x + B * P.y + C;
     return (long long)tmp * tmp / (A * A + B * B);
 }
 
-// Получение расстояния до заданной точки
+// Getting the distance to a given point
 int Line::distToPoint(const Point& P) const {
     return sqrt(sqrDistToPoint(P));
 }
 
-// Пересечение двух прямых
+// Intersection of two straight lines
 Point operator & (const Line& a, const Line& b) {
     int16_t x = ((long long)b.B * a.C - (long long)a.B * b.C) / ((long long)b.A * a.B - (long long)a.A * b.B);
     int16_t y = ((long long)b.A * a.C - (long long)a.A * b.C) / ((long long)a.A * b.B - (long long)b.A * a.B);
@@ -123,18 +114,18 @@ Segment::Segment() {}
 
 Segment::Segment(const Point& A, const Point& B) : A(A), B(B), line(A, B) {}
 
-// Учтановка отрезка в пустой отрезок
+// Setting a segment to an empty segment
 void Segment::clear() {
     A = Point(0, 0);
     B = Point(0, 0);
 }
 
-// Провекрка отрезка на пустоту
+// Checking the segment for emptiness
 bool Segment::empty() const {
     return (A == Point(0, 0)) && (B == Point(0, 0));
 }
 
-// Получение вектора отрезка
+// Getting the segment vector
 Vector Segment::getVector() const {
     return A ^ B;
 }

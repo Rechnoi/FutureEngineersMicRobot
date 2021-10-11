@@ -1,3 +1,5 @@
+#include "analogWrite.h"
+
 const byte port_lidar_motor_dir = 32;
 const byte port_lidar_motor_pwm = 33;
 
@@ -5,26 +7,26 @@ const byte port_lidar_motor_pwm = 33;
 
 const byte buff_reset[] = {0xA5, 0x40};
 
-// Перезапускаем лидар
+// Restarting lidar
 void lidarReset() {
     lidarSendBuff(buff_reset);
 }
 
 const byte buff_start_scan[] = {0xA5, 0x20};
 
-// Начинаем сканирование
+// Starting the scan
 void lidarStartScan() {
     lidarSendBuff(buff_start_scan);
 }
 
 const byte buff_start_express_scan[] = {0xA5, 0x82, 0x05, 0x00, 0x00, 0x00, 0x00, 0x00, 0x22};
 
-// Начинаем экспресс-сканирование
+// Starting express scanning
 void lidarStartExpressScan() {
     lidarSendBuff(buff_start_express_scan);
 }
 
-// Считываем ответ лидара
+// Reading the lidar response
 void lidarReadDescription() {
     for (int i = 0; i < 7; ++i) {
         while (!Serial2.available()) {}
@@ -32,12 +34,12 @@ void lidarReadDescription() {
     }
 }
 
-// Инициализируем лидар
+// Initializing lidar
 void lidarSetup() {
     pinMode(port_lidar_motor_dir, OUTPUT);
-    pinMode(port_lidar_motor_pwm, OUTPUT);
     digitalWrite(port_lidar_motor_dir, HIGH);
-    digitalWrite(port_lidar_motor_pwm, LOW);
+    //analogWrite(port_lidar_motor_pwm, 255 - 215, 10000);
+    analogWrite(port_lidar_motor_pwm, 255 - 255, 10000);
     delay(100);
     Serial2.begin(115200);
     lidarReset();
@@ -49,7 +51,7 @@ void lidarSetup() {
     lidarReadDescription();
 }
 
-// Останавливаем лидар
+// Stopping lidar
 void lidarStop() {
     digitalWrite(port_lidar_motor_dir, LOW);
     digitalWrite(port_lidar_motor_pwm, LOW);
@@ -62,7 +64,7 @@ int lidar_buff_ptr = 0;
 
 int cnt = 0;
 
-// Считываем информацию с лидара
+// Reading information from lidar
 void lidarRead() {
     if (!Serial2.available()) {
         return;
@@ -93,7 +95,7 @@ void lidarRead() {
     }
 }
 
-// Получение компенсации угла
+// Getting angle compensation
 double getDiffAngle(byte data_angle) {
     bool sign = data_angle >> 7;
     double diff_angle = (double)(data_angle & 0b1111111) / (1 << 3);
@@ -108,12 +110,12 @@ uint16_t distance[2];
 
 double old_start_angle = 0;
 
-// Получение разницы между углами
+// Getting the difference between the angles
 double angleDiff(double old_angle, double now_angle) {
     return old_angle <= now_angle ? now_angle - old_angle : 360 + now_angle - old_angle;
 }
 
-// Обработка данных с лидара
+// Processing data from the lidar
 void lidarProcessingData() {
     double start_angle = (((uint16_t)(lidar_buff[3] & 0b01111111) << 8) ^ lidar_buff[2]) / 64.;
     double old_start_angle = (((uint16_t)(lidar_old_buff[3] & 0b01111111) << 8) ^ lidar_old_buff[2]) / 64.;
@@ -142,7 +144,7 @@ void lidarProcessingData() {
 
 double old_angle = 0;
 
-// Обработка точки
+// Point Processing
 void processingPoint(uint16_t distance, double angle) {
     if ((old_angle - angle >= 90) && (cnt_points >= 10)) {
         processingTurnover();
