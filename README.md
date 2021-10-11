@@ -94,3 +94,21 @@
  - Press the button to start
 
  ## Our future plans
+  
+  As always, there isn't enough time or money for everything. And ideas come up often. That's why we created this section with our plans.
+  With the servo drive, the robot can set the angle of the wheels quite precisely
+
+  - ### Change the board created on the breadboard to the board created at the factory.
+    For this idea, we slightly changed the circuit diagram of the robot, and also created the layout of the board itself. All that remains is to wait for the finished board from the factory and test it
+    
+    ![Lidar](readme_photo/pcb.png)
+  
+  - ### Create a nose fairing and work on the aerodynamics of the robot
+    This idea came when we needed to speed up the robot. In the end, we didn't take it as a very complicated option and left it for the future, but the streamlined shape of the robot gives pluses to stability, which is a priority 
+
+    ![Lidar](readme_photo/aero.jpg)
+
+  - ### Create a nose fairing and work on the aerodynamics of the robot
+    This idea came when we needed to speed up the robot. In the end, we didn't take it as a very complicated option and left it for the future, but the streamlined shape of the robot gives pluses to stability, which is a priority 
+
+    ![Lidar](readme_photo/smalest.png)
