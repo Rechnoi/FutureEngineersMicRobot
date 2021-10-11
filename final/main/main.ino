@@ -1,6 +1,6 @@
-#define USE_BLUETOOTH 1
+#define USE_BLUETOOTH 0
 
-#define DEBUG 1
+#define DEBUG 0
 #define BUTTON 1
 
 #define LEFT 0
@@ -136,7 +136,7 @@ void loop() {
     }
     
     solve();
-#ifndef DEBUG
+#if !DEBUG
     while (true) {}
 #endif
     delay(2000);

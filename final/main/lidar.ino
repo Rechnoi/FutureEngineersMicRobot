@@ -34,12 +34,16 @@ void lidarReadDescription() {
     }
 }
 
+// Setting the lidar motor speed
+void lidarMotorWrite(int speed_motor) {
+    digitalWrite(port_lidar_motor_dir, HIGH);
+    analogWrite(port_lidar_motor_pwm, 255 - speed_motor, 10000); 
+}
+
 // Initializing lidar
 void lidarSetup() {
     pinMode(port_lidar_motor_dir, OUTPUT);
-    digitalWrite(port_lidar_motor_dir, HIGH);
-    //analogWrite(port_lidar_motor_pwm, 255 - 215, 10000);
-    analogWrite(port_lidar_motor_pwm, 255 - 255, 10000);
+    lidarMotorWrite(255);
     delay(100);
     Serial2.begin(115200);
     lidarReset();
@@ -53,8 +57,7 @@ void lidarSetup() {
 
 // Stopping lidar
 void lidarStop() {
-    digitalWrite(port_lidar_motor_dir, LOW);
-    digitalWrite(port_lidar_motor_pwm, LOW);
+    lidarMotorWrite(0);
 }
 
 byte lidar_buff[84];
