@@ -93,7 +93,7 @@
   ![ESP32Servo](readme_photo/esp32_servo_install.png)
   
 - Select the board "WEMOS LOLIN32". Connect the ESP32 board with the microUSB cable to the computer and select the corresponding port in the arduino IDE. Click the "Upload" button.
-  ![Upload](readme_photo/upload_programm)
+  ![Upload](readme_photo/upload_program.png)
 
 ## Starting the robot
 
