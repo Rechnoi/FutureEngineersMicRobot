@@ -78,13 +78,18 @@
  - To program the robot you need an Arduino IDE (https://www.arduino.cc/en/software). This open source software allows you to easily write code and upload it to the board. Open exe-file and follow the installer instructions.
 
  - Install ESP32 in the Arduino IDE board manager by adding the link (https://dl.espressif.com/dl/package_esp32_index.json) to the IDE settings.
-
+  ![](readme_photo\Open settings.png)
+  ![](readme_photo\add esp32 in Boards Manager.png)
+  ![](readme_photo\open Boards Manager.png)
+  ![](readme_photo\install esp32.png)
  - Use the library manager to install the ESP32 library ESP32S2 AnalogWrite.
-
+  ![](readme_photo\open Library Manager.png)
+  ![](readme_photo\esp32 AnalogWrite install.png)
  - Use the library manager to install the ESP32Servo library.
-
- - Select the board "WEMOS LOLIN32". Connect the ESP32 board with the microUSB cable to the computer and select the corresponding port in the arduino IDE. Click the "Load" button.
-
+  ![](readme_photo\open Library Manager.png)
+  ![](readme_photo\esp32 Servo install.png)
+ - Select the board "WEMOS LOLIN32". Connect the ESP32 board with the microUSB cable to the computer and select the corresponding port in the arduino IDE. Click the "Upload" button.
+  ![](readme_photo\upload.png)
 
 ## Starting the robot
 
@@ -94,7 +99,7 @@
  - Press the button to start
 
  ## Our future plans
-  
+
   As always, there isn't enough time or money for everything. And ideas come up often. That's why we created this section with our plans.
   With the servo drive, the robot can set the angle of the wheels quite precisely
 
