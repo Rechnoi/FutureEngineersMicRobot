@@ -78,8 +78,15 @@
  - To program the robot you need an Arduino IDE (https://www.arduino.cc/en/software). This open source software allows you to easily write code and upload it to the board. Open exe-file and follow the installer instructions.
 
  - Install ESP32 in the Arduino IDE board manager by adding the link (https://dl.espressif.com/dl/package_esp32_index.json) to the IDE settings.
-  ![](readme_photo\Open settings.png)
-  ![](readme_photo\add esp32 in Boards Manager.png)
+
+  ![Settings](readme_photo/Open settings.png)
+  
+  ![Manager](readme_photo/add esp32 in Boards Manager.png)
+  ![Settings](readme_photo/Open settings.png)
+  ![Settings](readme_photo/Open settings.png)
+  ![Settings](readme_photo/Open settings.png)
+
+  ![](readme_photo\)
   ![](readme_photo\open Boards Manager.png)
   ![](readme_photo\install esp32.png)
  - Use the library manager to install the ESP32 library ESP32S2 AnalogWrite.
