@@ -4,22 +4,23 @@ const int port_servo = 26;
 
 const int CENTER_ANGLE = 98;
 const int MAX_SERVO_ANGLE = 50;
+const int TURN_ANGLE = 30;
 
 Servo servo;
 
-// Инициализация сервопривода
+// Initializing the servo
 void servoSetup() {
     ESP32PWM::allocateTimer(2);
     servo.attach(port_servo);
     servoTurnCenter();
 }
 
-// Поворот сервопривода в центр
+// Turning the servo to the center
 void servoTurnCenter() {
     servo.write(CENTER_ANGLE);
 }
 
-// Поворот сервопривода на заданный угол
+// Rotation of the servo by a given angle
 void servoWrite(int angle) {
     if (angle < -MAX_SERVO_ANGLE) {
         angle = -MAX_SERVO_ANGLE;
@@ -30,16 +31,16 @@ void servoWrite(int angle) {
     servo.write(angle);
 }
 
-// Поворот сервопривода на максимальный угол направо или налево
+// Turning the servo on the turn
 void servoTurn(bool dir) {
     if (dir == LEFT) {
-        servoWrite(-MAX_SERVO_ANGLE);
+        servoWrite(-TURN_ANGLE);
     } else {
-        servoWrite(MAX_SERVO_ANGLE);
+        servoWrite(TURN_ANGLE);
     }
 }
 
-// Считывание угла сервопривода
+// Servo angle reading
 int servoRead() {
     return CENTER_ANGLE - servo.read();
 }

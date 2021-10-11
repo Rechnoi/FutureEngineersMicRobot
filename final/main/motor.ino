@@ -3,18 +3,18 @@
 const byte port_motor_dir = 19;
 const byte port_motor_pwm = 18;
 
-// Инициализация мотора
+// Initialization of the motor
 void motorSetup() {
     pinMode(port_motor_dir, OUTPUT);
 }
 
-// Устанока скорости мотора
+// Setting the motor speed
 void motorWrite(int speed_motor) {
     digitalWrite(port_motor_dir, HIGH);
     analogWrite(port_motor_pwm, 255 - speed_motor, 10000);
 }
 
-//Остановка мотора
+// Stopping the motor
 void motorStop() {
     motorWrite(0);
 }

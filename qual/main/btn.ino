@@ -1,12 +1,12 @@
 #if BUTTON
 const byte port_btn = 4;
 
-// Инициализация кнопки
+// Initializing the button
 void btnSetup() {
     pinMode(port_btn, INPUT);
 }
 
-// Считывание состояния кнопки
+// Reading the button status
 bool btnReadState() {
     return digitalRead(port_btn);
 }

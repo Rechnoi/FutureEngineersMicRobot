@@ -1,9 +1,9 @@
-#define pid_kp 0.1
-#define pid_kd 0.04
+#define pid_kp 0.05
+#define pid_kd 0 //0.01
 
 double old_pid_error;
 
-//Вычисление значения регулятора
+// Calculating the value of the regulator
 void pidCalculate() {
     Line line45degrees = side_move_forward == RIGHT ? Line(Point(0, 0), Point(1, 1)) : Line(Point(0, 0), Point(-1, 1));
     double dist_to_border = (border[side_move_forward].line & line45degrees).getLen();
