@@ -75,27 +75,25 @@
 
 ## Installing the necessary programs and flashing the board
 
- - To program the robot you need an Arduino IDE (https://www.arduino.cc/en/software). This open source software allows you to easily write code and upload it to the board. Open exe-file and follow the installer instructions.
+  - To program the robot you need an Arduino IDE (https://www.arduino.cc/en/software). This open source software allows you to easily write code and upload it to the board. Open exe-file and follow the installer instructions.
 
- - Install ESP32 in the Arduino IDE board manager by adding the link (https://dl.espressif.com/dl/package_esp32_index.json) to the IDE settings.
-
-  ![Settings](readme_photo/Open settings.png)
+  - Install ESP32 in the Arduino IDE board manager by adding the link (https://dl.espressif.com/dl/package_esp32_index.json) to the IDE settings.
+    - First, add additional board manager links
+    ![Settings](readme_photo/open_settings.png)
+    ![Manager](readme_photo/add_esp32_in_Boards_manager.png)
+    - Second, set the board model
+    ![Settings](readme_photo/open_settings.png)
+    ![Boards](readme_photo\open_boards_manager.png)
+    ![Install](readme_photo\install_esp32.png)
+ - Use the library manager to install the ESP32 libraries .
   
-  ![Manager](readme_photo/add esp32 in Boards Manager.png)
-  ![Settings](readme_photo/Open settings.png)
-  ![Settings](readme_photo/Open settings.png)
-  ![Settings](readme_photo/Open settings.png)
-
-  ![](readme_photo\)
-  ![](readme_photo\open Boards Manager.png)
-  ![](readme_photo\install esp32.png)
- - Use the library manager to install the ESP32 library ESP32S2 AnalogWrite.
-  ![](readme_photo\open Library Manager.png)
-  ![](readme_photo\esp32 AnalogWrite install.png)
- - Use the library manager to install the ESP32Servo library.
-  ![](readme_photo\open Library Manager.png)
-  ![](readme_photo\esp32 Servo install.png)
- - Select the board "WEMOS LOLIN32". Connect the ESP32 board with the microUSB cable to the computer and select the corresponding port in the arduino IDE. Click the "Upload" button.
+  ![Open](readme_photo\open_library_manager.png)
+  - ESP32S2 AnalogWrite
+  ![AnalogWrite](readme_photo\esp32_AnalogWrite_install.png)
+  - And ESP32Servo library.
+  ![ESP32Servo](readme_photo\esp32_servo_install.png)
+  
+- Select the board "WEMOS LOLIN32". Connect the ESP32 board with the microUSB cable to the computer and select the corresponding port in the arduino IDE. Click the "Upload" button.
   ![](readme_photo\upload.png)
 
 ## Starting the robot
