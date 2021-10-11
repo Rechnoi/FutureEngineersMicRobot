@@ -1,5 +1,5 @@
 # Violet (Team SHP-2) 
-![General](readme_photo/robot.jpg)
+![General](readme_photo/robot.png)
 
 ### A robot designed to solve the WRO FutureEngineers 2021 task (Version Mk. IV)
 ### © Anton Ivanchenko, Alexander Shirokovskikh
