@@ -20,23 +20,23 @@
   - The "readme_photo" folder contain photo for readme.md
 
 ## Photo of the robot
-  ![Front](views/front.jpg)
-  ![Back](views/back.jpg)
-  ![Right](views/right.jpg)
-  ![Left](views/left.jpg)
-  ![Top](views/top.jpg)
-  ![Bottom](views/bottom.jpg)
+  ![Front](views/front.png)
+  ![Back](views/back.png)
+  ![Right](views/right.png)
+  ![Left](views/left.png)
+  ![Top](views/top.png)
+  ![Bottom](views/bottom.png)
   *If it does not open, check the "views" folder, please
 
 ## Schematic diagram of an electromechanical device
-  ![Schema](readme_photo/Violet3.0.png)
-  *If it does not open, check the "\electromechanical component schematic" folder, please
+  ![Schema](readme_photo/Scheme.png)
+  *If it does not open or you need a better quality picture, check the "\electromechanical component schematic" folder, please
 
 
 ## Assembling the robot
 ### General Assembly
   - First, you need to 3D print all the necessary parts of the robot. To do this, go to the "3D-models/RRO 2021 Mk.IV/Robot RRO 2021 Mk. IV/STL" folder and print on 3D-printer all the models in it.
-  - Second, you need to buy all the necessary components: [lidar](https://www.slamtec.com/en/Lidar/A1), [motor](https://www.pololu.com/product/3042), [servo](https://aliexpress.ru/item/1005002235406689.html?spm=a2g0o.search0302.0.0.1f926b66Feapdr&algo_pvid=5aba579a-a3e4-483b-84e7-0390caa93118&algo_expid=5aba579a-a3e4-483b-84e7-0390caa93118-3&btsid=0b8b037016339644962273005e1c0c&ws_ab_test=searchweb0_0,searchweb201602_,searchweb201603_), [motor driver](https://mcustore.ru/store/moduli/drajver-dvigatelya-drv8833/) and [ESP Lolin32 board](https://mcustore.ru/store/espressif-systems/wemos-loin32-sovmestimyj-kontroller-pod-akkumulyator/), as well as the components involved in the robot's circuit board.
+  - Second, you need to buy all the necessary components: [lidar](https://www.slamtec.com/en/Lidar/A1), [motor](https://www.pololu.com/product/3042), [servo](https://aliexpress.ru/item/1005002235406689.html?spm=a2g0o.search0302.0.0.1f926b66Feapdr&algo_pvid=5aba579a-a3e4-483b-84e7-0390caa93118&algo_expid=5aba579a-a3e4-483b-84e7-0390caa93118-3&btsid=0b8b037016339644962273005e1c0c&ws_ab_test=searchweb0_0,searchweb201602_,searchweb201603_), [motor driver](https://mcustore.ru/store/moduli/drajver-dvigatelya-drv8833/) and [ESP Lolin32 board](https://mcustore.ru/store/espressif-systems/wemos-loin32-sovmestimyj-kontroller-pod-akkumulyator/), as well as the components involved in the robot's circuit board. The robot also requires 4 3x8x3 bearings, 2 3x8x4 bearings, 3x5x4 brass bushings, [differential](https://rc-today.ru/product/differencial-hsp-60065/) and two silicon [pololu tires](https://www.pololu.com/product/3408). To power the robot you can use any 7.4V 2S Li-Po battery included in the dimensions 53x30x11.5mm, for example we use this [battery](https://rc-go.ru/cat/akkumulyator-gensace-lipo-7-4v-2s-25c-450mah/). Two nylon ties and any glue will be needed to attach the button and the switch.  
   - Third, to assemble all the components you will need 12 M3 nuts, 12 M2 nuts, and the following screws (all lengths are from the head of the screw to the end of the thread):
     - 2xM3 7.6mm (countersunk)
     - 2xM3 20.8mm (countersunk)
@@ -48,26 +48,27 @@
     - 2xM2 8.8mm
     - 8xM2 6,5mm (countersunk)
     - 6xM2 10mm (countersunk)
+  - Fourth, according to the schematic, it is necessary to have a slide board not larger than 55.8x25.4 mm. It is recommended to use male and female threaded slats for easy replacement of burned components. The control board should be assembled in the following order: ESP Lolin32, slide board and motor driver.
+  - Fifth, assemble all components according to these instructions:
+    1. Первое
+    2. Второе
+    3. Третье
 
-  Using the Inventor assembly file (3D-models/RRO 2021 Mk.IV/Robot RRO 2021 Mk. IV), you can assemble a working copy of the robot by first printing out all necessary parts and purchasing the necessary components. The robot is assembled with M2 and M3 screws and nuts. Our robot uses ready made components: lidar, ESP32 board, micro metal gearmotor and a removable module with a camera. Also a differential must be installed on the rear axle of the robot. In automobiles and other wheeled vehicles, the differential allows the outer drive wheel to rotate faster than the inner drive wheel during a turn. This is necessary when the vehicle turns, making the wheel that is traveling around the outside of the turning curve roll farther and faster than the other. The average of the rotational speed of the two driving wheels equals the input rotational speed of the drive shaft.
-
-## About our sensor
+## About our electrical and mechanical components
+![Lidar](readme_photo/about.png)
 ### Lidar
-  ![Lidar](readme_photo/lidar.jpg)
   We use the RPLIDAR A1 in our robot. It is based on the principle of laser distance triangulation and uses high-speed data acquisition and processing equipment developed by Slamtec. The system measures distance data more than 8,000 times per second. The RPLIDAR A1 core rotates clockwise and performs an omnidirectional 360-degree laser scan of the surrounding space. The resulting data is converted by the MCU to build virtual walls.
   
 
-### About ESP32
-  ![Esp](readme_photo/esp_lolin32.jpg)
+### ESP32
   The Lolin D32 development board is based on the Espressif systems ESP32 low power system on a chip microcontroller. It has many powerful features including a dual core Arm based processor, Wi-Fi, Bluetooth, I2C, I2S, SPI, ADC, DAC, and 4MB flash. The D32 module provides these features in a convenient DIP format and can be programmed directly from a USB interface - no additional programming hardware is required. Additionally, the module also includes a charging circuit for a single cell 3.7V lithium battery, meaning that this module can easily be used in remote applications. 
 
-### About Polulu metal gearmotor
-  ![Motor](readme_photo/motor.jpg)
+### Polulu metal gearmotor
   This gearmotor is a miniature medium-power, 6 V brushed DC motor with a metal gearbox. It has a cross section of 10 × 12 mm, and the D-shaped gearbox output shaft is 9 mm long and 3 mm in diameter.
   These tiny brushed DC gearmotors are available in a wide range of gear ratios—from 5:1 up to 1000:1—and with five different motors: high-power 6 V and 12 V motors with long-life carbon brushes (HPCB), and high-power (HP), medium power (MP), and low power (LP) 6 V motors with shorter-life precious metal brushes. The 6 V and 12 V HPCB motors offer the same performance at their respective nominal voltages, just with the 12 V motor drawing half the current of the 6 V motor. The 6 V HPCB and 6 V HP motors are identical except for their brushes, which only affect the lifetime of the motor.
 
-### About Camera "TrackingCam"
-  Modern mobile robots operate in a predetermined, changing environment, interacting with objects in it. While moving, the robot must assess the environment. For this purpose, we use the "TrackingCam" camera. TrackingCam is a vision module capable of recognizing both single-color objects and composite objects consisting of several color areas. 
+### Servo MG90S
+  The MG90S is a small micro-format servo. So why not use its blue counterparts MG90? The answer is simple - metal gears. Thanks to them, the servo can allow you to exert a lot of force to turn the wheels without any consequences.
 
 
 ## Installing the necessary programs and flashing the board
