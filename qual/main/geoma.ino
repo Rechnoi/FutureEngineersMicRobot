@@ -3,7 +3,7 @@ Point queue[MAX_CNT_POINTS];
 int queue_ptr_begin;
 int queue_ptr_end;
 
-// Инициализация очереди
+// Initializing the queue
 void queue_init(const Point& A) {
     queue_ptr_begin = 0;
     queue[0] = A;
@@ -17,7 +17,7 @@ const int SQR_MAX_DIST_COMP = MAX_DIST_COMP * MAX_DIST_COMP;
 
 Segment local_border[4];
 
-// Разделение точек на компоненты
+// Dividing points into components
 void splitComponent() {
     for (int i = 0; i < 4; ++i) {
         local_border[i].clear();
@@ -47,12 +47,9 @@ void splitComponent() {
     }
 }
 
-const int MAX_DIST_SIGN = 100;
-const int SQR_MAX_DIST_SIGN = MAX_DIST_SIGN * MAX_DIST_SIGN;
-
-// Обрабатываем компоненту
+// Processing the component
 void processingComponent(Point* component, int size_component) {
-    if (size_component >= 3) {
+    if (size_component >= 2) {
         int sqr_max_dist = 0;
         Point ans1;
         Point ans2;
@@ -66,47 +63,42 @@ void processingComponent(Point* component, int size_component) {
                 }
             }
         }
-        if ((ans1 ^ ans2).getSqrLen() > SQR_MAX_DIST_SIGN) {
-            if (size_component >= 6) {
+        if (size_component >= 5) {
+            Line line(ans1, ans2);
+            int cnt = 0;
+            for (int i = 0; i < size_component; ++i) {
+                if (line.distToPoint(component[i]) > 100) {
+                    ++cnt;
+                }
+            }
+            if (cnt <= 3) {
                 Segment ans_segment(ans1, ans2);
                 processingSegmentBorder(ans_segment);
+            } else {
+                Point ans3;
+                int max_val = 0;
+                for (int i = 0; i < size_component; ++i) {
+                    int curr_val = (ans1 ^ component[i]).getLen() + (ans2 ^ component[i]).getLen();
+                    if (curr_val > max_val) {
+                        max_val = curr_val;
+                        ans3 = component[i];
+                    }
+                }
+                processingSegmentBorder(Segment(ans1, ans3));
+                processingSegmentBorder(Segment(ans2, ans3));
             }
-        } else {
-            signs[cnt_signs++] = (ans1 + ans2) / 2;
         }
     }
 }
 
-// Переводим точку в другую систему координат точку
+// We translate the point to another coordinate system the point
 Point conv_rect_coord(const Point& A) {
     int y = !border[BACK].empty() ? border[BACK].line.distToPoint(A) : 3000 - border[FORWARD].line.distToPoint(A);
     int x = side_move_forward == LEFT ? border[LEFT].line.distToPoint(A) : 1000 - border[RIGHT].line.distToPoint(A);
     return Point(x, y);
 }
 
-const int MAX_DIST_REACTION_SIGN = 400;
-const int SQR_MAX_DIST_REACTION_SIGN = MAX_DIST_REACTION_SIGN * MAX_DIST_REACTION_SIGN;
-
-// Обработка кубика
-void processingSign(Point sign) {
-    sign = conv_rect_coord(sign);
-    if ((400 - 200 < sign.x) && (sign.x < 600 + 200)) {
-        int j = -1;
-        if (abs(sign.y - 1000) < 200) {
-            j = 0;
-        } else if (abs(sign.y - 1500) < 200) {
-            j = 1;
-        } else if (abs(sign.y - 2000) < 200) {
-            j = 2;
-        }
-        if (j != -1) {
-            bool dir = sign.x < 500 ? LEFT : RIGHT;
-            is_sign[dir][j] = true;
-        }
-    }
-}
-
-// Обработка отрезка стенки
+// Processing of the wall segment
 void processingSegmentBorder(const Segment& segment) {
     Vector v = segment.getVector();
     double angle = abs(atan2(v.y, v.x));
