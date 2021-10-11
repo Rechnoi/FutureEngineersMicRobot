@@ -99,16 +99,16 @@
   With the servo drive, the robot can set the angle of the wheels quite precisely
 
   - ### Change the board created on the breadboard to the board created at the factory.
-    For this idea, we slightly changed the circuit diagram of the robot, and also created the layout of the board itself. All that remains is to wait for the finished board from the factory and test it
+    For this idea, we slightly changed the circuit diagram of the robot, and also created the layout of the board itself. All that remains is to wait for the finished board from the factory and test it.
     
     ![Lidar](readme_photo/pcb.png)
   
   - ### Create a nose fairing and work on the aerodynamics of the robot
-    This idea came when we needed to speed up the robot. In the end, we didn't take it as a very complicated option and left it for the future, but the streamlined shape of the robot gives pluses to stability, which is a priority 
+    This idea came when we needed to speed up the robot. In the end, we didn't take it as a very complicated option and left it for the future, but the streamlined shape of the robot gives pluses to stability, which is a priority. 
 
-    ![Lidar](readme_photo/aero.jpg)
+    ![Aero](readme_photo/aero.jpg)
 
-  - ### Create a nose fairing and work on the aerodynamics of the robot
-    This idea came when we needed to speed up the robot. In the end, we didn't take it as a very complicated option and left it for the future, but the streamlined shape of the robot gives pluses to stability, which is a priority 
+  - ### Make the robot even smaller
+    From the regional stage to the All-Russian stage, the size of the robot has decreased by almost three times. But we are sure that this is not the limit and it is possible to reduce the design. The small size of the robot allows us not to make unnecessary maneuvers on the track, which speeds up the passage time.
 
-    ![Lidar](readme_photo/smalest.png)
+    ![Ducks](readme_photo/smalest.png)
