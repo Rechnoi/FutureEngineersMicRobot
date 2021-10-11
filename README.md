@@ -26,10 +26,12 @@
   ![Left](views/left.png)
   ![Top](views/top.png)
   ![Bottom](views/bottom.png)
+  
   *If it does not open, check the "views" folder, please
 
 ## Schematic diagram of an electromechanical device
   ![Schema](readme_photo/Scheme.png)
+  
   *If it does not open or you need a better quality picture, check the "\electromechanical component schematic" folder, please
 
 
@@ -49,10 +51,7 @@
     - 8xM2 6,5mm (countersunk)
     - 6xM2 10mm (countersunk)
   - Fourth, according to the schematic, it is necessary to have a slide board not larger than 55.8x25.4 mm. It is recommended to use male and female threaded slats for easy replacement of burned components. The control board should be assembled in the following order: ESP Lolin32, slide board and motor driver.
-  - Fifth, assemble all components according to these instructions:
-    1. Первое
-    2. Второе
-    3. Третье
+  - Fifth, by opening the Inventor assembly file "3D-models/RRO 2021 Mk.IV/Robot RRO 2021 Mk. IV/Robot RRO 2021 Mk. IV.iam" assemble the robot as shown on the model.
 
 ## About our electrical and mechanical components
 ![Lidar](readme_photo/about.png)
@@ -63,12 +62,15 @@
 ### ESP32
   The Lolin D32 development board is based on the Espressif systems ESP32 low power system on a chip microcontroller. It has many powerful features including a dual core Arm based processor, Wi-Fi, Bluetooth, I2C, I2S, SPI, ADC, DAC, and 4MB flash. The D32 module provides these features in a convenient DIP format and can be programmed directly from a USB interface - no additional programming hardware is required. Additionally, the module also includes a charging circuit for a single cell 3.7V lithium battery, meaning that this module can easily be used in remote applications. 
 
+### DRV8833
+  The DRV8833 driver is used to control the motors, which allows to control two collector motors simultaneously. Internally the driver chip contains two independent H-bridges designed for voltages from 2.7 to 10.8 V, with operating current of each channel up to 0.5 A without heat sink, or up to 1.5 A with heat sink mounted on the chip.
+
 ### Polulu metal gearmotor
   This gearmotor is a miniature medium-power, 6 V brushed DC motor with a metal gearbox. It has a cross section of 10 × 12 mm, and the D-shaped gearbox output shaft is 9 mm long and 3 mm in diameter.
   These tiny brushed DC gearmotors are available in a wide range of gear ratios—from 5:1 up to 1000:1—and with five different motors: high-power 6 V and 12 V motors with long-life carbon brushes (HPCB), and high-power (HP), medium power (MP), and low power (LP) 6 V motors with shorter-life precious metal brushes. The 6 V and 12 V HPCB motors offer the same performance at their respective nominal voltages, just with the 12 V motor drawing half the current of the 6 V motor. The 6 V HPCB and 6 V HP motors are identical except for their brushes, which only affect the lifetime of the motor.
 
 ### Servo MG90S
-  The MG90S is a small micro-format servo. So why not use its blue counterparts MG90? The answer is simple - metal gears. Thanks to them, the servo can allow you to exert a lot of force to turn the wheels without any consequences.
+  The MG90S is a small micro-format servo. So why not use its blue counterparts MG90? The answer is simple - metal gears. Thanks to them, the servo can allow you to exert a lot of force to turn the wheels without any consequences. With the servo drive, the robot can set the angle of the wheels quite precisely. 
 
 
 ## Installing the necessary programs and flashing the board
