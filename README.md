@@ -82,7 +82,6 @@
     ![Settings](readme_photo/open_settings.png)
     ![Manager](readme_photo/add_esp32_in_boards_manager.png)
     - Second, set the board model
-    ![Settings](readme_photo/open_settings.png)
     ![Boards](readme_photo/open_boards_manager.png)
     ![Install](readme_photo/install_esp32.png)
  - Use the library manager to install the ESP32 libraries .
