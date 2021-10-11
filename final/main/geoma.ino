@@ -12,38 +12,61 @@ void queue_init(const Point& A) {
 
 bool used[MAX_CNT_POINTS];
 
-const int MAX_DIST_COMP = 150;
-const int SQR_MAX_DIST_COMP = MAX_DIST_COMP * MAX_DIST_COMP;
-
 Segment local_border[4];
 
-// Dividing points into components
-void splitComponent() {
-    for (int i = 0; i < 4; ++i) {
-        local_border[i].clear();
-    }
-    
-    memset(used, 0, cnt_points);
-    cnt_segments = 0;
-    cnt_signs = 0;
-    for (int i = 0; i < cnt_points; ++i) {
-        if (!used[i]) {
-            queue_init(points[i]);
-            used[i] = true;
-            while (queue_ptr_begin < queue_ptr_end) {
-                Point A = queue[queue_ptr_begin++];
-                for (int j = 0; j < cnt_points; ++j) {
-                    if ((!used[j]) && ((A ^ points[j]).getSqrLen() <= SQR_MAX_DIST_COMP)) {
-                        queue[queue_ptr_end++] = points[j];
-                        used[j] = true;
-                    }
+// We translate the point to another coordinate system the point
+Point conv_rect_coord(const Point& A) {
+    int y = !border[BACK].empty() ? border[BACK].line.distToPoint(A) : 3000 - border[FORWARD].line.distToPoint(A);
+    int x = side_move_forward == LEFT ? border[LEFT].line.distToPoint(A) : 1000 - border[RIGHT].line.distToPoint(A);
+    return Point(x, y);
+}
+
+// Cube Processing
+void processingSign(Point sign) {
+    if (sign.getLen() > 100) {
+        sign = conv_rect_coord(sign);
+        for (int dir = 0; dir < 2; ++dir) {
+            for (int type_sign = 0; type_sign < 2; ++type_sign) {
+                Point ideal_sign(dir * 1000, 2400 + type_sign * 200);
+                if ((abs(sign.y - ideal_sign.y) < 100) && (abs(sign.x - ideal_sign.x) < 200)) {
+                    is_rotate_sign[dir][type_sign] = true;
                 }
             }
-            processingComponent(queue, queue_ptr_end);
+        }
+        for (int dir = 0; dir < 2; ++dir) {
+            for (int i = 0; i < 3; ++i) {
+                Point ideal_sign(400 + dir * 200, 1000 + i * 500);
+                if ((abs(sign.y - ideal_sign.y) < 70) && (abs(sign.x - ideal_sign.x) < 70)) {
+                    is_sign[dir][i] = true;
+                }
+            }
         }
     }
-    for (int i = 0; i < 4; ++i) {
-        border[i] = local_border[i];
+}
+
+// Processing of the wall segment
+void processingSegmentBorder(const Segment& segment) {
+    Vector v = segment.getVector();
+    double angle = abs(atan2(v.y, v.x));
+
+    if (abs(angle - PI / 2) < radians(45)) {
+        if ((segment.line.getX(0) < 0)
+            && ((local_border[LEFT].empty()) || (segment.line.distToCenter() > local_border[LEFT].line.distToCenter()))) {
+            local_border[LEFT] = segment;
+        }
+        if ((segment.line.getX(0) > 0)
+            && ((local_border[RIGHT].empty()) || (segment.line.distToCenter() > local_border[RIGHT].line.distToCenter()))) {
+            local_border[RIGHT] = segment;
+        }
+    } else if (min(angle, PI - angle) < radians(45)) {
+        if (((segment.line.getY(0) < 0)
+            && ((local_border[BACK].empty()) || (segment.line.distToCenter() > local_border[BACK].line.distToCenter())))) {
+            local_border[BACK] = segment;
+        }
+        if (((segment.line.getY(0) > 0)
+            && ((local_border[FORWARD].empty()) || (segment.line.distToCenter() > local_border[FORWARD].line.distToCenter())))) {
+            local_border[FORWARD] = segment;
+        }
     }
 }
 
@@ -98,61 +121,35 @@ void processingComponent(Point* component, int size_component) {
     }
 }
 
-// We translate the point to another coordinate system the point
-Point conv_rect_coord(const Point& A) {
-    int y = !border[BACK].empty() ? border[BACK].line.distToPoint(A) : 3000 - border[FORWARD].line.distToPoint(A);
-    int x = side_move_forward == LEFT ? border[LEFT].line.distToPoint(A) : 1000 - border[RIGHT].line.distToPoint(A);
-    return Point(x, y);
-}
+const int MAX_DIST_COMP = 150;
+const int SQR_MAX_DIST_COMP = MAX_DIST_COMP * MAX_DIST_COMP;
 
-const int MAX_DIST_REACTION_SIGN = 400;
-const int SQR_MAX_DIST_REACTION_SIGN = MAX_DIST_REACTION_SIGN * MAX_DIST_REACTION_SIGN;
-
-// Cube Processing
-void processingSign(Point sign) {
-    if (sign.getLen() > 100) {
-        sign = conv_rect_coord(sign);
-        for (int dir = 0; dir < 2; ++dir) {
-            for (int type_sign = 0; type_sign < 2; ++type_sign) {
-                Point ideal_sign(dir * 1000, 2400 + type_sign * 200);
-                if ((abs(sign.y - ideal_sign.y) < 100) && (abs(sign.x - ideal_sign.x) < 200)) {
-                    is_rotate_sign[dir][type_sign] = true;
+// Dividing points into components
+void splitComponent() {
+    for (int i = 0; i < 4; ++i) {
+        local_border[i].clear();
+    }
+    
+    memset(used, 0, cnt_points);
+    cnt_segments = 0;
+    cnt_signs = 0;
+    for (int i = 0; i < cnt_points; ++i) {
+        if (!used[i]) {
+            queue_init(points[i]);
+            used[i] = true;
+            while (queue_ptr_begin < queue_ptr_end) {
+                Point A = queue[queue_ptr_begin++];
+                for (int j = 0; j < cnt_points; ++j) {
+                    if ((!used[j]) && ((A ^ points[j]).getSqrLen() <= SQR_MAX_DIST_COMP)) {
+                        queue[queue_ptr_end++] = points[j];
+                        used[j] = true;
+                    }
                 }
             }
-        }
-        for (int dir = 0; dir < 2; ++dir) {
-            for (int i = 0; i < 3; ++i) {
-                Point ideal_sign(400 + dir * 200, 1000 + i * 500);
-                if ((abs(sign.y - ideal_sign.y) < 70) && (abs(sign.x - ideal_sign.x) < 70)) {
-                    is_sign[dir][i] = true;
-                }
-            }
+            processingComponent(queue, queue_ptr_end);
         }
     }
-}
-
-// Processing of the wall segment
-void processingSegmentBorder(const Segment& segment) {
-    Vector v = segment.getVector();
-    double angle = abs(atan2(v.y, v.x));
-
-    if (abs(angle - PI / 2) < radians(45)) {
-        if ((segment.line.getX(0) < 0)
-            && ((local_border[LEFT].empty()) || (segment.line.distToCenter() > local_border[LEFT].line.distToCenter()))) {
-            local_border[LEFT] = segment;
-        }
-        if ((segment.line.getX(0) > 0)
-            && ((local_border[RIGHT].empty()) || (segment.line.distToCenter() > local_border[RIGHT].line.distToCenter()))) {
-            local_border[RIGHT] = segment;
-        }
-    } else if (min(angle, PI - angle) < radians(45)) {
-        if (((segment.line.getY(0) < 0)
-            && ((local_border[BACK].empty()) || (segment.line.distToCenter() > local_border[BACK].line.distToCenter())))) {
-            local_border[BACK] = segment;
-        }
-        if (((segment.line.getY(0) > 0)
-            && ((local_border[FORWARD].empty()) || (segment.line.distToCenter() > local_border[FORWARD].line.distToCenter())))) {
-            local_border[FORWARD] = segment;
-        }
+    for (int i = 0; i < 4; ++i) {
+        border[i] = local_border[i];
     }
 }

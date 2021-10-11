@@ -6,7 +6,7 @@
 
 <br>
 
-## Our video review of the robot on [Youtube](https://youtu.be/*)
+## Our video review of the robot on [Youtube](https://youtu.be/UIMAgbEZvwc)
 ## Introduction
   We were tasked with designing and assembling an unmanned vehicle that could correctly and accurately accomplish the WRO FutureEngineers 2021 mission. To achieve our goals, we built a four-wheeled robot based on the ESP32. The main sensor of this robot was a lidar system, which gives information about the distances to points around the robot in 360 degrees. During development, geometric features of vehicles, such as Ackermann angles, were taken into account.
 
@@ -81,21 +81,20 @@
   - Install ESP32 in the Arduino IDE board manager by adding the link (https://dl.espressif.com/dl/package_esp32_index.json) to the IDE settings.
     - First, add additional board manager links
     ![Settings](readme_photo/open_settings.png)
-    ![Manager](readme_photo/add_esp32_in_Boards_manager.png)
+    ![Manager](readme_photo/add_esp32_in_boards_manager.png)
     - Second, set the board model
-    ![Settings](readme_photo/open_settings.png)
-    ![Boards](readme_photo\open_boards_manager.png)
-    ![Install](readme_photo\install_esp32.png)
+    ![Boards](readme_photo/open_boards_manager.png)
+    ![Install](readme_photo/install_esp32.png)
  - Use the library manager to install the ESP32 libraries .
   
-  ![Open](readme_photo\open_library_manager.png)
+  ![Open](readme_photo/open_library_manager.png)
   - ESP32S2 AnalogWrite
-  ![AnalogWrite](readme_photo\esp32_AnalogWrite_install.png)
+  ![AnalogWrite](readme_photo/esp32_AnalogWrite_install.png)
   - And ESP32Servo library.
-  ![ESP32Servo](readme_photo\esp32_servo_install.png)
+  ![ESP32Servo](readme_photo/esp32_servo_install.png)
   
 - Select the board "WEMOS LOLIN32". Connect the ESP32 board with the microUSB cable to the computer and select the corresponding port in the arduino IDE. Click the "Upload" button.
-  ![](readme_photo\upload.png)
+  ![Upload](readme_photo/upload_program.png)
 
 ## Starting the robot
 

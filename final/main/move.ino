@@ -10,6 +10,14 @@ void moveBorder() {
     turnover_is_ready = false;
 }
 
+void updateMainTargetDistance() {
+    if (side_move_forward == LEFT) {
+        middle_target_distance = left_middle_target_distance;
+    } else {
+        middle_target_distance = right_middle_target_distance;
+    }
+}
+
 void rotate() {
     if (cnt_rotates < 4) {
         for (int side = 0; side < 2; ++side) {
@@ -20,7 +28,6 @@ void rotate() {
     }
     
     servoTurn(dir_rotate);
-    //motorWrite(85);
     
     bool flag = true;
     while (flag) {
@@ -34,7 +41,6 @@ void rotate() {
         }
     }
     servoTurnCenter();
-    //motorWrite(170);
 
     unsigned long long time_begin = millis();
 
@@ -56,27 +62,6 @@ void rotate() {
 }
 
 const int dist_to_rotate = 860; //760;
-
-// Riding to the first turn
-void moveStart() {
-    if ((border[LEFT].empty()) || (border[RIGHT].empty())) {
-        side_move_forward = !border[RIGHT].empty() ? RIGHT : LEFT;
-    } else {
-        side_move_forward = border[RIGHT].line.distToCenter() > border[LEFT].line.distToCenter() ? RIGHT : LEFT;
-    }
-    updateMainTargetDistance();
-    
-    while (dir_rotate == -1) {
-        lidarRead();
-        moveBorder();
-    }
-    if (dir_rotate == side_move_forward) {
-        side_move_forward = !side_move_forward;
-        updateMainTargetDistance();
-    }
-    moveToRotate();
-    target_distance = middle_target_distance;
-}
 
 // Riding to the turn
 void moveToRotate() {
@@ -102,23 +87,28 @@ void moveToRotate() {
     }
 }
 
-void moveFinish() {}
-
-// Solving the task
-void solve() {
-    motorWrite(170);
-    moveStart();
-    rotate();
-    for (int i = 0; i < 11; ++i) {
-        moveToRotate();
-        rotate();
+// Riding to the first turn
+void moveStart() {
+    if ((border[LEFT].empty()) || (border[RIGHT].empty())) {
+        side_move_forward = !border[RIGHT].empty() ? RIGHT : LEFT;
+    } else {
+        side_move_forward = border[RIGHT].line.distToCenter() > border[LEFT].line.distToCenter() ? RIGHT : LEFT;
     }
-    moveFinish();
+    updateMainTargetDistance();
     
-    
-    motorStop();
-    lidarStop();
+    while (dir_rotate == -1) {
+        lidarRead();
+        moveBorder();
+    }
+    if (dir_rotate == side_move_forward) {
+        side_move_forward = !side_move_forward;
+        updateMainTargetDistance();
+    }
+    moveToRotate();
+    target_distance = middle_target_distance;
 }
+
+void moveFinish() {}
 
 // Updating the target distance to the wall
 void updateTargetDistance() {
@@ -154,10 +144,18 @@ void updateTargetDistance() {
     }
 }
 
-void updateMainTargetDistance() {
-    if (side_move_forward == LEFT) {
-        middle_target_distance = left_middle_target_distance;
-    } else {
-        middle_target_distance = right_middle_target_distance;
+// Solving the task
+void solve() {
+    motorWrite(170);
+    moveStart();
+    rotate();
+    for (int i = 0; i < 11; ++i) {
+        moveToRotate();
+        rotate();
     }
+    moveFinish();
+    
+    
+    motorStop();
+    lidarStop();
 }

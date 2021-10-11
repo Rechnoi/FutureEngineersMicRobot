@@ -1,3 +1,5 @@
+// ============================== STRUCTURE POINT ==============================
+
 Point::Point() {}
 
 Point::Point(int16_t x, int16_t y) : x(x), y(y) {}
@@ -67,6 +69,8 @@ double getAngle(const Vector& a, const Vector& b) {
     return atan2(a * b, (a, b));
 }
 
+// ============================== STRUCTURE LINE ===============================
+
 Line::Line() {}
 
 Line::Line(const Point& A, const Point& B) {
@@ -108,7 +112,7 @@ Point operator & (const Line& a, const Line& b) {
     return Point(x, y);
 }
 
-//SEGMENT
+// ============================= STRUCTURE SEGMENT =============================
 
 Segment::Segment() {}
 
