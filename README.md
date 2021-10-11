@@ -52,6 +52,7 @@
     - 8xM2 6,5mm (countersunk)
     - 6xM2 10mm (countersunk)
   - Fourth, according to the schematic, it is necessary to have a slide board not larger than 55.8x25.4 mm. It is recommended to use male and female threaded slats for easy replacement of burned components. The control board should be assembled in the following order: ESP Lolin32, slide board and motor driver.
+  ![PCB_old](readme_photo/pcb_old.png)
   - Fifth, by opening the Inventor assembly file "3D-models/RRO 2021 Mk.IV/Robot RRO 2021 Mk. IV/Robot RRO 2021 Mk. IV.iam" assemble the robot as shown on the model.
 
 ## About our electrical and mechanical components
