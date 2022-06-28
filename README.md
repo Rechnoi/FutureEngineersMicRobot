@@ -1,13 +1,13 @@
-# Violet (Team SHP-3) 
+# MicRobot (Команда SHP-7) 
 ![General](readme_photo/robot.png)
 
-### A robot designed to solve the WRO FutureEngineers 2022 task (Version Mk. IV)
+### Робот создан для выполнения задачи РРО "Будущие инженеры" 2022 (Версия Mk. V) 
 ### © Anton Ivanchenko, Alexander Shirokovskikh, Dmitriy Shmelev
 
 <br>
 
-## Our video review of the robot on [Youtube](https://youtu.be/UIMAgbEZvwc)
-## Introduction
+## Наш видео-обзор робота на [Youtube](https://youtu.be/UIMAgbEZvwc)
+## Вступление
   We were tasked with designing and assembling an unmanned vehicle that could correctly and accurately accomplish the WRO FutureEngineers 2022 mission. To achieve our goals, we built a four-wheeled robot based on the ESP32. The main sensor of this robot was a lidar system, which gives information about the distances to points around the robot in 360 degrees. During development, geometric features of vehicles, such as Ackermann angles, were taken into account.
 
 ## Repository content
