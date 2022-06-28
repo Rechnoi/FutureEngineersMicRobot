@@ -1,5 +1,5 @@
 # MicRobot (Команда SHP-7) 
-![General](readme_photo/robot.png)
+![General](readme_photo/robot.jpg)
 
 ### Робот создан для выполнения задачи РРО "Будущие инженеры" 2022 (Версия Mk. V) 
 ### © Anton Ivanchenko, Alexander Shirokovskikh, Dmitriy Shmelev
@@ -20,12 +20,12 @@
   - Папка "readme_photo" содержит фото, используемые в README.md файле
 
 ## Фото робота
-  ![Front](views/front.png)
-  ![Back](views/back.png)
-  ![Right](views/right.png)
-  ![Left](views/left.png)
-  ![Top](views/top.png)
-  ![Bottom](views/bottom.png)
+  ![Front](views/front.jpg)
+  ![Back](views/back.jpg)
+  ![Right](views/right.jpg)
+  ![Left](views/left.jpg)
+  ![Top](views/top.jpg)
+  ![Bottom](views/bottom.jpg)
   
   *Если фотографии не появляются, пожалуйста, проверьте папку "\views"
 
