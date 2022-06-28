@@ -8,18 +8,18 @@
 
 ## Наш видео-обзор робота на [Youtube](https://youtu.be/UIMAgbEZvwc)
 ## Вступление
-  We were tasked with designing and assembling an unmanned vehicle that could correctly and accurately accomplish the WRO FutureEngineers 2022 mission. To achieve our goals, we built a four-wheeled robot based on the ESP32. The main sensor of this robot was a lidar system, which gives information about the distances to points around the robot in 360 degrees. During development, geometric features of vehicles, such as Ackermann angles, were taken into account.
+  Перед нами стояла задача спроектировать и собрать беспилотное транспортное средство, которое могло бы верно и точно выполнить задачу РРО "Будущие инжинеры" 2022. Для достижения поставленных целей мы построили четырехколесного робота на базе ESP32. Основным датчиком этого робота стал LIDAR, который дает информацию о расстоянии до препятсвий вокруг робота. При разработке были учтены геометрические особенности транспортных средств, такие как углы Аккермана, дифференциальная передача мощность, а также углы Кастра.
 
-## Repository content
-  - The "3D-models" folder contains all versions of 3D models for printing the robot
-  - The "final/main" folder contains the final code for the final stage
-  - The "qual/main" folder contains the final code for the qualitication stage
-  - The "electromechanical component schematic" folder contains a schematic of the electromechanical representation of the robot
-  - The "Team photo" folder contains the team photos required by the regulations
-  - The "Views" folder contains overview photos of the robot
-  - The "readme_photo" folder contain photo for readme.md
+## Содержание репозитория
+  - Папка "3D-models" содержит все версии робота
+  - Папка "final/main" содержит код финального заезда
+  - Папка "qual/main" содержит код для квалификационного заезда
+  - Папка "electromechanical component schematic" содержит электромеханическую схему робота
+  - Папка "Team photo" содержит два фото команды по регламенту
+  - Папка "views" содержит обзорные фото робота с шести сторон
+  - Папка "readme_photo" содержит фото, используемые в README.md файле
 
-## Photo of the robot
+## Фото робота
   ![Front](views/front.png)
   ![Back](views/back.png)
   ![Right](views/right.png)
@@ -27,15 +27,15 @@
   ![Top](views/top.png)
   ![Bottom](views/bottom.png)
   
-  *If it does not open, check the "views" folder, please
+  *Если фотографии не появляются, пожалуйста, проверьте папку "\views"
 
 ## Schematic diagram of an electromechanical device
   ![Schema](readme_photo/Scheme.png)
   
-  *If it does not open or you need a better quality picture, check the "\electromechanical component schematic" folder, please
+  *Если фотография не появляется или вам требуется фото лучшего качества, пожалуйста, проверьте папку "\electromechanical component schematic"
 
 
-## Assembling the robot
+## Сборка робота
 ![Schema](readme_photo/explode.png)
 ### General Assembly
   - First, you need to 3D print all the necessary parts of the robot. To do this, go to the "3D-models/RRO 2021 Mk.IV/Robot RRO 2021 Mk. IV/STL" folder and print on 3D-printer all the models in it.
