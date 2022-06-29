@@ -30,7 +30,7 @@
   *Если фотографии не появляются, пожалуйста, проверьте папку "\views"
 
 ## Schematic diagram of an electromechanical device
-  ![Schema](electromechanical component schematicw/MicRobot V1.0.png)
+  ![Schema](readme_photo/Scheme.png)
   
   *Если фотография не появляется или вам требуется фото лучшего качества, пожалуйста, проверьте папку "\electromechanical component schematic"
 
