@@ -37,7 +37,7 @@
 
 ## Сборка робота
 ![Schema](readme_photo/explode.png)
-### General Assembly
+### Сборка
   - Во-первых вам понадобится 3д принтер чтобы напечатать все необходимые детали робота. Все необходимые для печати файлы находятся в "3D-models/MicRobot/STL".
   - Во-вторых ва необходимо купить следующие компоненты: [lidar](https://www.ldrobot.com/product/en/98), [мотор](https://www.pololu.com/product/3042), [сервомашинка](https://aliexpress.ru/item/33005962141.html?spm=a2g2w.productlist.i3.1.28112b04bPPZ4H&sku_id=67040694994), [motor driver](https://mcustore.ru/store/moduli/drajver-dvigatelya-drv8833/) и [ESP Lolin32 board](https://mcustore.ru/store/espressif-systems/wemos-loin32-sovmestimyj-kontroller-pod-akkumulyator/), также компоненты для печатной платы робота. Также для робота 8 латунных втулок 3x6x3.5, 8 латунных втулок 2x5x4, [дифференциал](https://aliexpress.ru/item/1005002059526808.html?spm=a2g0s.8937460.0.0.284e2e0es78X7M&_ga=2.115270855.1386300494.1637997466-1501504413.1636710174&_gac=1.229369582.1636715332.CjwKCAiAvriMBhAuEiwA8Cs5lXXNDe5P8AZSbcxNE6eIKPbjUcXarfGioelwyVRt6oiXFh2pakuwRRoCbmgQAvD_BwE) и четыре [колеса](https://www.pololu.com/product/3408). Для питания робота можно использовать любой 7.4V 2S Li-Po аккумулятор размерами до 53x30x11.5мм, например мы используем такой [аккумулятор](https://rc-go.ru/cat/akkumulyator-gensace-lipo-7-4v-2s-25c-450mah/). Также для сборки некоторых элементов робота понпдобится цианакрилатный клей.
   - В-третьих, для сборки напечатаных и купленных компонентов понадобится 10 гаек м2 и следующие винты:
