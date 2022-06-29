@@ -1,25 +1,25 @@
 # Violet (Team SHP-3) 
 ![General](readme_photo/robot.png)
 
-### A robot designed to solve the WRO FutureEngineers 2022 task (Version Mk. IV)
+### Робот, созданный для решения задачи WRO FutureEngineers 2022 (Version Mk. IV)
 ### © Anton Ivanchenko, Alexander Shirokovskikh, Dmitriy Shmelev
 
 <br>
 
-## Our video review of the robot on [Youtube](https://youtu.be/UIMAgbEZvwc)
-## Introduction
-  We were tasked with designing and assembling an unmanned vehicle that could correctly and accurately accomplish the WRO FutureEngineers 2022 mission. To achieve our goals, we built a four-wheeled robot based on the ESP32. The main sensor of this robot was a lidar system, which gives information about the distances to points around the robot in 360 degrees. During development, geometric features of vehicles, such as Ackermann angles, were taken into account.
+## Наше видео на [Youtube](https://youtu.be/UIMAgbEZvwc)
+## Введение
+  Перед нами стояла задача спроектировать и собрать беспилотное транспортное средство, которое могло бы правильно и точно выполнить миссию WRO FutureEngineers 2022. Для достижения поставленных целей мы построили четырехколесного робота на базе ESP32. Основным датчиком этого робота стала лидарная система, которая дает информацию о расстояниях до точек вокруг робота в 360 градусах. При разработке были учтены геометрические особенности транспортных средств, такие как углы Аккермана.
 
-## Repository content
-  - The "3D-models" folder contains all versions of 3D models for printing the robot
-  - The "final/main" folder contains the final code for the final stage
-  - The "qual/main" folder contains the final code for the qualitication stage
-  - The "electromechanical component schematic" folder contains a schematic of the electromechanical representation of the robot
-  - The "Team photo" folder contains the team photos required by the regulations
-  - The "Views" folder contains overview photos of the robot
-  - The "readme_photo" folder contain photo for readme.md
+## Содержание репозитория
+  - Папка "3D-models" содержит все версии робота
+  - Папка "final/main" содержит код финального заезда
+  - Папка "qual/main" содержит код для квалификационного заезда
+  - Папка "electromechanical component schematic" содержит электромеханическую схему робота
+  - Папка "Team photo" содержит два фото команды по регламенту
+  - Папка "views" содержит обзорные фото робота с шести сторон
+  - Папка "readme_photo" содержит фото, используемые в README.md файле
 
-## Photo of the robot
+## Фото робота
   ![Front](views/front.png)
   ![Back](views/back.png)
   ![Right](views/right.png)
@@ -27,99 +27,101 @@
   ![Top](views/top.png)
   ![Bottom](views/bottom.png)
   
-  *If it does not open, check the "views" folder, please
+  *Если он не открывается, проверьте папку "views", пожалуйста
 
-## Schematic diagram of an electromechanical device
-  ![Schema](readme_photo/Scheme.png)
+## Схема электромеханического устройства
+  ![Схема](readme_photo/Scheme.png)
   
-  *If it does not open or you need a better quality picture, check the "\electromechanical component schematic" folder, please
+  *Если она не открывается или вам нужна картинка лучшего качества, проверьте папку "\electromechanical component schematic", пожалуйста.
 
 
-## Assembling the robot
-![Schema](readme_photo/explode.png)
-### General Assembly
-  - First, you need to 3D print all the necessary parts of the robot. To do this, go to the "3D-models/RRO 2021 Mk.IV/Robot RRO 2021 Mk. IV/STL" folder and print on 3D-printer all the models in it.
-  - Second, you need to buy all the necessary components: [lidar](https://www.slamtec.com/en/Lidar/A1), [motor](https://www.pololu.com/product/3042), [servo](https://aliexpress.ru/item/1005002235406689.html?spm=a2g0o.search0302.0.0.1f926b66Feapdr&algo_pvid=5aba579a-a3e4-483b-84e7-0390caa93118&algo_expid=5aba579a-a3e4-483b-84e7-0390caa93118-3&btsid=0b8b037016339644962273005e1c0c&ws_ab_test=searchweb0_0,searchweb201602_,searchweb201603_), [motor driver](https://mcustore.ru/store/moduli/drajver-dvigatelya-drv8833/) and [ESP Lolin32 board](https://mcustore.ru/store/espressif-systems/wemos-loin32-sovmestimyj-kontroller-pod-akkumulyator/), as well as the components involved in the robot's circuit board. The robot also requires 4 3x8x3 bearings, 2 3x8x4 bearings, 3x5x4 brass bushings, [differential](https://rc-today.ru/product/differencial-hsp-60065/) and two silicon [pololu tires](https://www.pololu.com/product/3408). To power the robot you can use any 7.4V 2S Li-Po battery included in the dimensions 53x30x11.5mm, for example we use this [battery](https://rc-go.ru/cat/akkumulyator-gensace-lipo-7-4v-2s-25c-450mah/). Two nylon ties and any glue will be needed to attach the button and the switch.  
-  - Third, to assemble all the components you will need 12 M3 nuts, 12 M2 nuts, and the following screws (all lengths are from the head of the screw to the end of the thread):
-    - 2xM3 7.6mm (countersunk)
-    - 2xM3 20.8mm (countersunk)
-    - 2xM3 16.25mm (countersunk)
-    - 4xM3 16.25mm (countersunk)
-    - 16xM3 6.5mm (countersunk)
-    - 4xM3 33.8mm
-    - 2xM2 7mm
-    - 2xM2 8.8mm
-    - 8xM2 6,5mm (countersunk)
-    - 6xM2 10mm (countersunk)
-  - Fourth, according to the schematic, it is necessary to have a slide board not larger than 55.8x25.4 mm. It is recommended to use male and female threaded slats for easy replacement of burned components. The control board should be assembled in the following order: ESP Lolin32, slide board and motor driver.
+## Сборка робота
+![Схема](readme_photo/explode.png)
+### Общая сборка
+  - Сначала вам нужно напечатать все необходимые части робота. Для этого зайдите в папку "3D-models/RRO 2021 Mk.IV/Robot RRO 2021 Mk. IV/STL" и распечатайте на 3D-принтере все модели в ней.
+  - Во-вторых, вам нужно купить все необходимые компоненты: [лидар](https://www.slamtec.com/en/Lidar/A1), [мотор](https://www.pololu.com/product/3042), [сервопривод](https://aliexpress.ru/item/1005002235406689.html?spm=a2g0o.search0302.0.0.1f926b66Feapdr&algo_pvid=5aba579a-a3e4-483b-84e7-0390caa93118&algo_expid=5aba579a-a3e4-483b-84e7-0390caa93118-3&btsid=0b8b037016339644962273005e1c0c&ws_ab_test=searchweb0_0,searchweb201602_,searchweb201603_), [драйвер мотора](https://mcustore.ru/store/moduli/drajver-dvigatelya-drv8833/) и [плата ESP Lolin32](https://mcustore.ru/store/espressif-systems/wemos-loin32-sovmestimyj-kontroller-pod-akkumulyator/), а также компоненты, задействованные в печатной плате робота. Для робота также необходимы 4 подшипника 3x8x3, 2 подшипника 3x8x4, латунные втулки 3x5x4, [дифференциал](https://rc-today.ru/product/differencial-hsp-60065/) и две силиконовые [шины pololu](https://www.pololu.com/product/3408). Для питания робота можно использовать любую 7.4V 2S Li-Po батарею размером 53x30x11.5mm, например, мы используем вот эту [батарею](https://rc-go.ru/cat/akkumulyator-gensace-lipo-7-4v-2s-25c-450mah/). Для крепления кнопки и выключателя понадобятся две нейлоновые стяжки и любой клей.  
+  - В-третьих, для сборки всех компонентов вам понадобится 12 гаек M3, 12 гаек M2 и следующие винты (все длины указаны от головки винта до конца резьбы):
+    - 2xM3 7,6 мм (с потайной головкой)
+    - 2xM3 20,8 мм (с потайной головкой)
+    - 2xM3 16,25 мм (с потайной головкой)
+    - 4xM3 16,25 мм (потайная)
+    - 16xM3 6,5 мм (потайная)
+    - 4xM3 33,8 мм
+    - 2xM2 7мм
+    - 2xM2 8,8 мм
+    - 8xM2 6,5 мм (с потайной головкой)
+    - 6xM2 10мм (потайная)
+  - В-четвертых, в соответствии со схемой, необходимо иметь направляющую плату размером не более 55,8x25,4 мм. Рекомендуется использовать планки с наружной и внутренней резьбой для удобства замены сгоревших компонентов. Плата управления должна быть собрана в следующем порядке: ESP Lolin32, плата слайдера и драйвер двигателя.
   ![PCB_old](readme_photo/pcb_old.png)
-  - Fifth, by opening the Inventor assembly file "3D-models/RRO 2021 Mk.IV/Robot RRO 2021 Mk. IV/Robot RRO 2021 Mk. IV.iam" assemble the robot as shown on the model.
+  - В-пятых, открыв в Inventor файл сборки "3D-models/RRO 2021 Mk.IV/Robot RRO 2021 Mk. IV/Robot RRO 2021 Mk. IV.iam", соберите робота, как показано на модели.
 
-## About our electrical and mechanical components
-![Lidar](readme_photo/about.png)
-### Lidar
-  We use the RPLIDAR A1 in our robot. It is based on the principle of laser distance triangulation and uses high-speed data acquisition and processing equipment developed by Slamtec. The system measures distance data more than 8,000 times per second. The RPLIDAR A1 core rotates clockwise and performs an omnidirectional 360-degree laser scan of the surrounding space. The resulting data is converted by the MCU to build virtual walls.
+
+## О наших электрических и механических компонентах
+![Лидар](readme_photo/about.png)
+### Лидар
+  В нашем роботе используется RPLIDAR A1. Он основан на принципе лазерной триангуляции расстояния и использует высокоскоростное оборудование для сбора и обработки данных, разработанное компанией Slamtec. Система измеряет данные о расстоянии более 8 000 раз в секунду. Ядро RPLIDAR A1 вращается по часовой стрелке и выполняет всенаправленное 360-градусное лазерное сканирование окружающего пространства. Полученные данные преобразуются MCU для построения виртуальных стен.
   
 
 ### ESP32
-  The Lolin D32 development board is based on the Espressif systems ESP32 low power system on a chip microcontroller. It has many powerful features including a dual core Arm based processor, Wi-Fi, Bluetooth, I2C, I2S, SPI, ADC, DAC, and 4MB flash. The D32 module provides these features in a convenient DIP format and can be programmed directly from a USB interface - no additional programming hardware is required. Additionally, the module also includes a charging circuit for a single cell 3.7V lithium battery, meaning that this module can easily be used in remote applications. 
+  Плата разработки Lolin D32 основана на микроконтроллере ESP32 от Espressif systems с низким энергопотреблением. Он обладает множеством мощных функций, включая двухъядерный процессор на базе Arm, Wi-Fi, Bluetooth, I2C, I2S, SPI, АЦП, ЦАП и 4 Мб флэш-памяти. Модуль D32 предоставляет эти функции в удобном формате DIP и может быть запрограммирован непосредственно с USB-интерфейса - дополнительное оборудование для программирования не требуется. Кроме того, модуль также включает схему зарядки для одноэлементной литиевой батареи 3,7 В, что означает, что этот модуль может быть легко использован в удаленных приложениях. 
 
 ### DRV8833
-  The DRV8833 driver is used to control the motors, which allows to control two collector motors simultaneously. Internally the driver chip contains two independent H-bridges designed for voltages from 2.7 to 10.8 V, with operating current of each channel up to 0.5 A without heat sink, or up to 1.5 A with heat sink mounted on the chip.
+  Для управления двигателями используется драйвер DRV8833, который позволяет управлять двумя коллекторными двигателями одновременно. Внутри микросхема драйвера содержит два независимых Н-моста, рассчитанных на напряжение от 2,7 до 10,8 В, с рабочим током каждого канала до 0,5 А без теплоотвода или до 1,5 А с установленным на микросхеме теплоотводом.
 
-### Polulu metal gearmotor
-  This gearmotor is a miniature medium-power, 6 V brushed DC motor with a metal gearbox. It has a cross section of 10 × 12 mm, and the D-shaped gearbox output shaft is 9 mm long and 3 mm in diameter.
-  These tiny brushed DC gearmotors are available in a wide range of gear ratios—from 5:1 up to 1000:1—and with five different motors: high-power 6 V and 12 V motors with long-life carbon brushes (HPCB), and high-power (HP), medium power (MP), and low power (LP) 6 V motors with shorter-life precious metal brushes. The 6 V and 12 V HPCB motors offer the same performance at their respective nominal voltages, just with the 12 V motor drawing half the current of the 6 V motor. The 6 V HPCB and 6 V HP motors are identical except for their brushes, which only affect the lifetime of the motor.
+### Металлический мотор-редуктор Polulu
+  Этот мотор-редуктор представляет собой миниатюрный двигатель постоянного тока средней мощности с щеткой на 6 В и металлическим редуктором. Его поперечное сечение составляет 10 × 12 мм, а D-образный выходной вал редуктора имеет длину 9 мм и диаметр 3 мм.
+  Эти миниатюрные щеточные моторы-редукторы постоянного тока выпускаются в широком диапазоне передаточных чисел - от 5:1 до 1000:1 - и с пятью различными двигателями: мощными двигателями 6 В и 12 В с угольными щетками с длительным сроком службы (HPCB), а также двигателями высокой (HP), средней (MP) и малой (LP) мощности 6 В с щетками из драгоценных металлов с меньшим сроком службы. Двигатели HPCB на 6 В и 12 В обладают одинаковой производительностью при соответствующих номинальных напряжениях, только двигатель на 12 В потребляет вдвое меньше тока, чем двигатель на 6 В. Двигатели 6 В HPCB и 6 В HP идентичны, за исключением щеток, которые влияют только на срок службы двигателя.
 
-### Servo MG90S
-  The MG90S is a small micro-format servo. So why not use its blue counterparts MG90? The answer is simple - metal gears. Thanks to them, the servo can allow you to exert a lot of force to turn the wheels without any consequences. With the servo drive, the robot can set the angle of the wheels quite precisely. 
+### Сервопривод MG90S
+  MG90S - это маленький сервопривод микроформата. Так почему бы не использовать его синий аналог MG90? Ответ прост - металлические шестеренки. Благодаря им сервопривод может позволить вам прикладывать большое усилие для поворота колес без каких-либо последствий. С помощью сервопривода робот может довольно точно задавать угол поворота колес. 
 
 
-## Installing the necessary programs and flashing the board
+## Установка необходимых программ и прошивка платы
 
-  - To program the robot you need an Arduino IDE (https://www.arduino.cc/en/software). This open source software allows you to easily write code and upload it to the board. Open exe-file and follow the installer instructions.
+  - Для программирования робота вам понадобится Arduino IDE (https://www.arduino.cc/en/software). Это программное обеспечение с открытым исходным кодом позволяет легко писать код и загружать его на плату. Откройте exe-файл и следуйте инструкциям программы установки.
 
-  - Install ESP32 in the Arduino IDE board manager by adding the link (https://dl.espressif.com/dl/package_esp32_index.json) to the IDE settings.
-    - First, add additional board manager links
+  - Установите ESP32 в менеджере плат Arduino IDE, добавив ссылку (https://dl.espressif.com/dl/package_esp32_index.json) в настройки IDE.
+    - Сначала добавьте дополнительные ссылки менеджера плат
     ![Settings](readme_photo/open_settings.png)
-    ![Manager](readme_photo/add_esp32_in_boards_manager.png)
-    - Second, set the board model
+    ![Менеджер](readme_photo/add_esp32_in_boards_manager.png)
+    - Во-вторых, установите модель платы
     ![Boards](readme_photo/open_boards_manager.png)
     ![Install](readme_photo/install_esp32.png)
- - Use the library manager to install the ESP32 libraries .
+ - Используйте менеджер библиотек для установки библиотек ESP32 .
   
-  ![Open](readme_photo/open_library_manager.png)
-  - ESP32S2 AnalogWrite
+  ![Открыть](readme_photo/open_library_manager.png)
+  - Аналоговая запись ESP32S2
   ![AnalogWrite](readme_photo/esp32_AnalogWrite_install.png)
-  - And ESP32Servo library.
+  - И библиотека ESP32Servo.
   ![ESP32Servo](readme_photo/esp32_servo_install.png)
   
-- Select the board "WEMOS LOLIN32". Connect the ESP32 board with the microUSB cable to the computer and select the corresponding port in the arduino IDE. Click the "Upload" button.
+- Выберите плату "WEMOS LOLIN32". Подключите плату ESP32 с помощью кабеля microUSB к компьютеру и выберите соответствующий порт в IDE arduino. Нажмите кнопку "Upload".
   ![Upload](readme_photo/upload_program.png)
 
-## Starting the robot
+## Запуск робота
 
- - Turn on the robot with the toggle switch
- - Set up the card as specified in the rules
- - Put the robot on the track
- - Press the button to start
+ - Включите робота с помощью тумблера.
+ - Установите карту, как указано в правилах
+ - Поставьте робота на трек
+ - Нажмите кнопку для запуска
 
- ## Our future plans
+ ## Наши планы на будущее
 
-  As always, there isn't enough time or money for everything. And ideas come up often. That's why we created this section with our plans.
-  With the servo drive, the robot can set the angle of the wheels quite precisely
+  Как всегда, на все не хватает ни времени, ни денег. А идеи появляются часто. Поэтому мы создали этот раздел с нашими планами.
+  С помощью сервопривода робот может довольно точно устанавливать угол поворота колес
 
-  - ### Change the board created on the breadboard to the board created at the factory.
-    For this idea, we slightly changed the circuit diagram of the robot, and also created the layout of the board itself. All that remains is to wait for the finished board from the factory and test it.
+  - ### Изменить плату, созданную на макетной плате, на плату, созданную на заводе.
+    Для этой идеи мы немного изменили принципиальную схему робота, а также создали макет самой платы. Осталось только дождаться готовую плату с завода и протестировать ее.
     
     ![Lidar](readme_photo/pcb.png)
   
-  - ### Create a nose fairing and work on the aerodynamics of the robot
-    This idea came when we needed to speed up the robot. In the end, we didn't take it as a very complicated option and left it for the future, but the streamlined shape of the robot gives pluses to stability, which is a priority. 
+  - ### Создание носового обтекателя и работа над аэродинамикой робота
+    Эта идея пришла, когда нам нужно было ускорить робота. В итоге мы не стали рассматривать его как очень сложный вариант и оставили на будущее, но обтекаемая форма робота дает плюсы к устойчивости, что является приоритетом. 
 
     ![Aero](readme_photo/aero.jpg)
 
-  - ### Make the robot even smaller
-    From the regional stage to the All-Russian stage, the size of the robot has decreased by almost three times. But we are sure that this is not the limit and it is possible to reduce the design. The small size of the robot allows us not to make unnecessary maneuvers on the track, which speeds up the passage time.
+  - ### Сделать робота еще меньше
+От регионального этапа до всероссийского размер робота уменьшился почти в три раза. Но мы уверены, что это не предел и можно еще уменьшить конструкцию. Небольшой размер робота позволяет нам не делать лишних маневров на трассе, что ускоряет время прохождения.
 
-    ![Ducks](readme_photo/smalest.png)
+
+Переведено с помощью www.DeepL.com/Translator (бесплатная версия)
