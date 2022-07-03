@@ -2,7 +2,7 @@ Point::Point() {}
 
 Point::Point(int16_t x, int16_t y) : x(x), y(y) {}
 
-//  Sum of two vectors
+// Sum of two vectors
 Point operator + (const Point& a, const Point& b) {
     return Point(a.x + b.x, a.y + b.y);
 }
