@@ -6,7 +6,7 @@
 
 <br>
 
-## Наш видеообзор на [Youtube](https://youtu.be/UIMAgbEZvwc)
+## Наш видеообзор на [Youtube](https://youtu.be/LUYHc2npUGY)
 
 <br>
 
